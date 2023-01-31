@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[AgendaController::class,'getAllData']);
+Route::get('/jadwal',[AgendaController::class,'getAllDataJadwal']);
+Route::get('/jadwal/detail/{id_agenda}',[AgendaController::class,'getDetailAgenda']);
+Route::get('/jadwal/edit/{id_agenda}',[AgendaController::class,'editDetailAgenda']);
