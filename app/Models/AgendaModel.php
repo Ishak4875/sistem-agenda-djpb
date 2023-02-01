@@ -20,4 +20,24 @@ class AgendaModel extends Model
             ->where('id_agenda',$id_agenda)
             ->first();
     }
+
+    public function updateAgenda($id_agenda,$data)
+    {
+        DB::table('tbl_agenda')
+            ->where('id_agenda',$id_agenda)
+            ->update($data);
+    }
+
+    public function insertAgenda($data)
+    {
+        DB::table('tbl_agenda')
+            ->insert($data);
+    }
+
+    public function deleteAgenda($id_agenda)
+    {
+        DB::table('tbl_agenda')
+            ->where('id_agenda',$id_agenda)
+            ->delete();
+    }
 }

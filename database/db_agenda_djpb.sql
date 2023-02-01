@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 08:34 AM
+-- Generation Time: Feb 01, 2023 at 04:11 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -44,8 +44,9 @@ CREATE TABLE `tbl_agenda` (
 --
 
 INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_agenda`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`) VALUES
-(1, 'Agenda 1', '2023-01-03', '04:21:27', 'Pak Ini', 'Online', 'Di Sana', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
-(2, 'Agenda 2', '2023-01-04', '11:21:39', 'Pak Itu', 'Offline', 'Di Situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung');
+(1, 'Agenda 1', '2023-01-03', '04:21:27', 'Pak Itu', 'Online', 'Di Sana', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
+(2, 'Agenda 2', '2023-01-04', '11:21:39', 'Pak Itu', 'Offline', 'Di Situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(4, 'Agenda 4', '2023-02-09', '11:10:00', 'Pak Siapa', 'Offline', 'Ruangan Di Sana', 'Belum Mengundang Pak Kanwil', 'Belum Berlangsung');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +66,7 @@ ALTER TABLE `tbl_agenda`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -31,6 +31,9 @@
 
     <!-- Template Stylesheet -->
     <link href="/{{'template'}}/css/style.css" rel="stylesheet">
+    <script src="{{asset('js/jquery-3.6.3.min.js')}}"></script>
+    <script src="{{ asset('js/toastr.min.js')}}"></script>
+    <link href="{{ asset('css/toastr.min.css')}}" rel="stylesheet" />
 </head>
 
 <body>
@@ -50,7 +53,6 @@
     @yield('content')
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/{{'template'}}/lib/wow/wow.min.js"></script>
     <script src="/{{'template'}}/lib/easing/easing.min.js"></script>

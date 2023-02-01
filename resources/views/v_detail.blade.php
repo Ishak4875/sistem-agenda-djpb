@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                <img class="img-fluid" src="/{{'template'}}/img/about.png" alt="">
+                <img class="img-fluid" src="/gambar/icon_detail.png" width="450px" height="450px" alt="Detail">
             </div>
             <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                 <div class="h-100">

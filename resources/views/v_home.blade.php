@@ -29,7 +29,7 @@
     <div class="container">
         <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
             <h1 class="display-6">Jadwal Agenda</h1>
-            <p class="text-primary fs-5 mb-5 pb-5">Persiapkan Dirimu</p>
+            <p class="text-primary fs-5 mb-5 pb-5">Persiapkan Diri Anda</p>
         </div>
         <div class="owl-carousel roadmap-carousel wow fadeInUp" data-wow-delay="0.1s">
             @foreach ($agenda as $data)

@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[AgendaController::class,'getAllData']);
-Route::get('/jadwal',[AgendaController::class,'getAllDataJadwal']);
+Route::get('/jadwal',[AgendaController::class,'getAllDataJadwal'])->name('jadwal');
 Route::get('/jadwal/detail/{id_agenda}',[AgendaController::class,'getDetailAgenda']);
 Route::get('/jadwal/edit/{id_agenda}',[AgendaController::class,'editDetailAgenda']);
+Route::post('/jadwal/update/{id_agenda}',[AgendaController::class,'updateAgenda']);
+Route::get('/jadwal/add',[AgendaController::class,'addAgenda']);
+Route::post('/jadwal/insert',[AgendaController::class,'insertAgenda']);
+Route::get('/jadwal/delete/{id_agenda}',[AgendaController::class,'deleteAgenda']);
