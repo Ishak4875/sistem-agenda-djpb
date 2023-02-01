@@ -40,11 +40,13 @@ class AgendaController extends Controller
 
     public function addAgenda()
     {
+        
         return view('v_add');
     }
 
     public function insertAgenda(Request $request)
     {
+        
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
@@ -85,6 +87,7 @@ class AgendaController extends Controller
 
     public function editDetailAgenda(Request $request)
     {
+        
         $id_agenda = $request->id_agenda;
         $data = [
             'detail'=>$this->AgendaModel->getDetailAgenda($id_agenda)
@@ -94,6 +97,7 @@ class AgendaController extends Controller
 
     public function updateAgenda(Request $request)
     {
+        
         $id_agenda = $request->id_agenda;
         Request()->validate([
             'nama_agenda'=>'required',
@@ -135,6 +139,7 @@ class AgendaController extends Controller
 
     public function deleteAgenda(Request $request)
     {
+        
         $id_agenda = $request->id_agenda;
         try {
             $this->AgendaModel->deleteAgenda($id_agenda);

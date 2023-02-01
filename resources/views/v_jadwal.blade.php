@@ -43,14 +43,18 @@
                                         <td style="color: black">{{$data->status}}</td>
                                         <td>
                                             <a href="/jadwal/detail/{{$data->id_agenda}}" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>
-                                            <a href="/jadwal/edit/{{$data->id_agenda}}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                            <button data-bs-target="#delete{{$data->id_agenda}}" data-bs-toggle="modal" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                            @if (Auth::check())
+                                              <a href="/jadwal/edit/{{$data->id_agenda}}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                              <button data-bs-target="#delete{{$data->id_agenda}}" data-bs-toggle="modal" type="button" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        <a href="/jadwal/add" class="btn btn-sm btn-primary">Add &nbsp;<i class="bi bi-plus-circle"></i></a>
+                        @if (Auth::check())
+                          <a href="/jadwal/add" class="btn btn-sm btn-success">Add &nbsp;<i class="bi bi-plus-circle"></i></a>
+                        @endif
                     </div>
                 </div>
             </div>
