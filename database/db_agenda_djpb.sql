@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2023 at 09:02 AM
+-- Generation Time: Feb 02, 2023 at 08:12 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -113,8 +113,13 @@ CREATE TABLE `tbl_agenda` (
 --
 
 INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_agenda`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`) VALUES
-(1, 'Agenda 1', '2023-01-03', '04:21:27', 'Pak Itu', 'Online', 'Di Sana', 'Mengundang Pak Kanwil', 'Sedang Berlangsung'),
-(2, 'Agenda 2', '2023-01-04', '11:21:39', 'Pak Itu', 'Offline', 'Di Situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung');
+(1, 'Agenda 1', '2023-01-03', '04:21:27', 'Pak Itu', 'Offline', 'aula', 'Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(2, 'Agenda 2', '2023-01-04', '11:21:39', 'Pak Itu', 'Offline', 'Di Situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(5, 'Agenda 3', '2023-02-09', '09:12:00', 'Pak Dia', 'Offline', 'Ruang Di situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(6, 'Agenda 4', '2023-02-24', '09:15:00', 'Pak Siapa', 'Offline', 'Ruang Di Tempat', 'Mengundang Pak Kanwil', 'Sedang Berlangsung'),
+(7, 'Agenda 5', '2023-02-10', '09:15:00', 'Pak Situ', 'Online', 'Ruang Di Sana', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
+(8, 'Agenda 6', '2023-02-16', '09:15:00', 'Pak Sini', 'Online', 'Ruang Online', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
+(9, 'Agenda 7', '2023-02-17', '14:12:00', 'Pak Sana', 'Online', 'Ruang Di Sana', 'Mengundang Pak Kanwil', 'Sedang Berlangsung');
 
 -- --------------------------------------------------------
 
@@ -138,7 +143,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'UserDJPB', 'djpbkendari@gmail.com', NULL, '$2y$10$2SJLQT0UDTUo4kryPy6v2ePIKvbTGoF/bO8exhZeyi3lRSIzaQKUy', NULL, '2023-01-31 19:33:54', '2023-01-31 19:33:54');
+(1, 'UserDJPB', 'djpbkendari@gmail.com', NULL, '$2y$10$wrIM9XFVhXktF48w9H2H6OMiRKSQH/25dYweRQyqPbaRahERAvbqy', NULL, '2023-01-31 19:33:54', '2023-02-01 18:21:17');
 
 --
 -- Indexes for dumped tables
@@ -210,7 +215,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
