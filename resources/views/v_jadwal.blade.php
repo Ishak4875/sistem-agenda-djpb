@@ -1,4 +1,5 @@
 @extends('layout.v_template')
+@section('background','class="bg-light"')
 @section('content')
 @if (session('success'))
   <script>
@@ -14,7 +15,7 @@
     });
   </script>
 @endif
-<div class="container-fluid bg-light py-4 mb-4">
+<div class="container-fluid py-4 mb-4">
     <div class="container py-1">
         <div class="row g-5 align-items-center">
             <div class="card shadow p-3 mb-5 bg-white rounded animated slideInDown">
@@ -52,6 +53,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex justify-content-center">
+                          {!! $agenda->links() !!}
+                        </div>
                         @if (Auth::check())
                           <a href="/jadwal/add" class="btn btn-sm btn-success">Add &nbsp;<i class="bi bi-plus-circle"></i></a>
                         @endif

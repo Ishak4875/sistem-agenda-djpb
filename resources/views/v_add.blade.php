@@ -30,7 +30,7 @@
 
                         <h6 class="form-label" for="form6Example4">Waktu Agenda</h6>
                         <div class="form-outline mb-4">
-                          <input type="time" style="color: black" name="waktu_agenda" class="form-control" />
+                          <input type="time" step="1" style="color: black" name="waktu_agenda" class="form-control" />
                           <div class="text-danger">
                             @error('waktu_agenda')
                                 {{$message}}
@@ -70,7 +70,7 @@
                         <div class="form-outline mb-4">
                             <select name="mengundang_pak_kanwil" style="color: black" class="form-select" aria-label="Default select example">
                                 <option value="Mengundang Pak Kanwil">Mengundang Pak Kanwil</option>
-                                <option value="Belum Mengundang Pak Kanwil">Belum Mengundang Pak Kanwil</option>
+                                <option value="Tidak Mengundang Pak Kanwil">Tidak Mengundang Pak Kanwil</option>
                             </select>
                         </div>
 

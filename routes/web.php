@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\PasswordController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,10 @@ Route::get('/jadwal/edit/{id_agenda}',[AgendaController::class,'editDetailAgenda
 Route::post('/jadwal/update/{id_agenda}',[AgendaController::class,'updateAgenda'])->middleware('auth');;
 Route::get('/jadwal/add',[AgendaController::class,'addAgenda'])->middleware('auth');;
 Route::post('/jadwal/insert',[AgendaController::class,'insertAgenda'])->middleware('auth');;
-Route::get('/jadwal/delete/{id_agenda}',[AgendaController::class,'deleteAgenda'])->middleware('auth');;
+Route::get('/jadwal/delete/{id_agenda}',[AgendaController::class,'deleteAgenda'])->middleware('auth');
+
+Route::get('/change-password',[PasswordController::class,'changePassword']);
+Route::post('/change-password/update',[PasswordController::class,'updatePassword']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

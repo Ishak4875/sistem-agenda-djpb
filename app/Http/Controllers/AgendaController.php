@@ -16,7 +16,7 @@ class AgendaController extends Controller
     public function getAllData()
     {
         $data = [
-            'agenda'=>$this->AgendaModel->getAllAgenda()
+            'agenda'=>$this->AgendaModel->getAgenda()
         ];
         return view('v_home',$data);
     }

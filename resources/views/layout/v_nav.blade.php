@@ -9,11 +9,12 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
             <a href="/" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
+            {{-- <a href="about.html" class="nav-item nav-link">About</a> --}}
             @if (Auth::check() == false)
                 <a href="/login" class="nav-item nav-link">Login</a>
             @endif
             @if (Auth::check())
+                <a href="/change-password" class="nav-item nav-link">Change Password</a>
                 <a href="{{ route('logout') }}" class="nav-item nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     Logout
                 </a>
@@ -26,11 +27,3 @@
         </div>
     </div>
 </nav>
-
-<script>
-    function doLogOutForm(){
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-    }
-</script>

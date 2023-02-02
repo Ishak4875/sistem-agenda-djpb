@@ -1,6 +1,19 @@
 @extends('layout.v_template')
 @section('content')
-<!-- Header Start -->
+@if (session('success'))
+  <script>
+    $(function () { //ready
+      toastr.success("{{session('success')}}");
+    });
+  </script>
+@endif
+@if (session('error'))
+  <script>
+    $(function () { //ready
+      toastr.error("{{session('error')}}");
+    });
+  </script>
+@endif
 <div class="container-fluid hero-header bg-light py-4 mb-4">
     <div class="container py-1">
         <div class="row g-5 align-items-center">

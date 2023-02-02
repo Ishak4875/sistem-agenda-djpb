@@ -8,10 +8,16 @@ use Illuminate\Support\Facades\DB;
 
 class AgendaModel extends Model
 {
-    public function getAllAgenda()
+    public function getAgenda()
     {
         return DB::table('tbl_agenda')
             ->get();
+    }
+
+    public function getAllAgenda()
+    {
+        return DB::table('tbl_agenda')
+            ->paginate(5);
     }
 
     public function getDetailAgenda($id_agenda)
