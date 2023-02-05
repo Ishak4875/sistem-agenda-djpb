@@ -37,10 +37,12 @@
                                 <?php $no=1; ?>
                                 @foreach ($agenda as $data)
                                     <tr>
+                                        <?php $tanggal = date("d-m-Y", strtotime($data->tanggal_agenda)) ?>
+                                        <?php $waktu = date("H:i", strtotime($data->waktu_agenda)) ?>
                                         <th style="color: black" scope="row">{{$no++}}</th>
                                         <td style="color: black">{{$data->nama_agenda}}</td>
-                                        <td style="color: black">{{$data->tanggal_agenda}}</td>
-                                        <td style="color: black">{{$data->waktu_agenda}}</td>
+                                        <td style="color: black">{{$tanggal}}</td>
+                                        <td style="color: black">{{$waktu}}</td>
                                         <td style="color: black">{{$data->status}}</td>
                                         <td>
                                             <a href="/jadwal/detail/{{$data->id_agenda}}" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>

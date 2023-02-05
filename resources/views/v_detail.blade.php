@@ -15,8 +15,9 @@
                         <span>{{$detail->tanggal_agenda}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
+                        <?php $waktu = date("H:i", strtotime($detail->waktu_agenda)) ?>
                         <i class="bi bi-alarm bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>
-                        <span>{{$detail->waktu_agenda}}</span>
+                        <span>{{$waktu}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <i class="bi bi-wifi bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>

@@ -30,7 +30,8 @@
 
                         <h6 class="form-label" for="form6Example4">Waktu Agenda</h6>
                         <div class="form-outline mb-4">
-                          <input type="time" step="1" style="color: black" value="{{$detail->waktu_agenda}}" name="waktu_agenda" class="form-control" />
+                          <?php $waktu = date("H:i", strtotime($detail->waktu_agenda)) ?>
+                          <input type="time" style="color: black" value="{{$waktu}}" name="waktu_agenda" class="form-control" />
                           <div class="text-danger">
                             @error('waktu_agenda')
                                 {{$message}}
@@ -40,7 +41,13 @@
                       
                         <h6 class="form-label" for="form6Example4">Penganggung Jawab</h6>
                         <div class="form-outline mb-4">
-                          <input type="text" value="{{$detail->penanggung_jawab}}" placeholder="Masukkan Nama Penanggung Jawab" style="color: black" name="penanggung_jawab" class="form-control" />
+                          <select name="penanggung_jawab" style="color: black" class="form-select" aria-label="Default select example">
+                            <option <?php if(($detail->penanggung_jawab) == 'PPA 1') echo 'selected'?> value="PPA 1">PPA 1</option>
+                            <option <?php if(($detail->penanggung_jawab) == 'PPA 2') echo 'selected'?> value="PPA 2">PPA 2</optio>
+                            <option <?php if(($detail->penanggung_jawab) == 'PAPK') echo 'selected'?> value="PAPK">PAPK</option>
+                            <option <?php if(($detail->penanggung_jawab) == 'SKKI') echo 'selected'?> value="SKKI">SKKI</option>
+                            <option <?php if(($detail->penanggung_jawab) == 'Umum') echo 'selected'?> value="Umum">Umum</option>
+                          </select>
                           <div class="text-danger">
                             @error('penanggung_jawab')
                                 {{$message}}
@@ -53,12 +60,17 @@
                             <select name="via" style="color: black" class="form-select" aria-label="Default select example">
                                 <option <?php if(($detail->via) == 'Online') echo 'selected'?> value="Online">Online</option>
                                 <option <?php if(($detail->via) == 'Offline') echo 'selected'?> value="Offline">Offline</option>
+                                <option <?php if(($detail->via) == 'Hybrid') echo 'selected'?> value="Hybrid">Hybrid</option>
                             </select>
                         </div>
 
                         <h6 class="form-label" for="form6Example4">Ruangan</h6>
                         <div class="form-outline mb-4">
-                          <input type="text" value="{{$detail->ruang}}" placeholder="Masukkan Ruangan" style="color: black" name="ruang" class="form-control" />
+                          <select name="ruang" style="color: black" class="form-select" aria-label="Default select example">
+                            <option <?php if(($detail->ruang) == 'Ruang Rapat Lantai 2') echo 'selected'?> value="Ruang Rapat Lantai 2">Ruang Rapat Lantai 2</option>
+                            <option <?php if(($detail->ruang) == 'Aula') echo 'selected'?> value="Aula">Aula</option>
+                            <option <?php if(($detail->ruang) == 'TLC') echo 'selected'?> value="TLC">TLC</option>
+                          </select>
                           <div class="text-danger">
                             @error('ruang')
                                 {{$message}}

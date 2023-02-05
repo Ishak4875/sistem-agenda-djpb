@@ -5,7 +5,7 @@
         <div class="row g-5 align-items-center">
             <div class="card shadow p-3 mb-5 bg-white rounded animated slideInDown">
                 <div class="card-body">
-                    <h4 style="text-align: center">Edit Agenda</h4>
+                    <h4 style="text-align: center">Tambah Agenda</h4>
                     <form action="/jadwal/insert" method="POST">
                         @csrf
                         <h6 class="form-label" for="form6Example3">Nama Agenda</h6>
@@ -30,7 +30,7 @@
 
                         <h6 class="form-label" for="form6Example4">Waktu Agenda</h6>
                         <div class="form-outline mb-4">
-                          <input type="time" step="1" style="color: black" name="waktu_agenda" class="form-control" />
+                          <input type="time" style="color: black" name="waktu_agenda" class="form-control" />
                           <div class="text-danger">
                             @error('waktu_agenda')
                                 {{$message}}
@@ -40,7 +40,13 @@
                       
                         <h6 class="form-label" for="form6Example4">Penganggung Jawab</h6>
                         <div class="form-outline mb-4">
-                          <input type="text" placeholder="Masukkan Nama Penanggung Jawab" style="color: black" name="penanggung_jawab" class="form-control" />
+                          <select name="penanggung_jawab" style="color: black" class="form-select" aria-label="Default select example">
+                            <option value="PPA 1">PPA 1</option>
+                            <option value="PPA 2">PPA 2</option>
+                            <option value="PAPK">PAPK</option>
+                            <option value="SKKI">SKKI</option>
+                            <option value="Umum">Umum</option>
+                          </select>
                           <div class="text-danger">
                             @error('penanggung_jawab')
                                 {{$message}}
@@ -53,12 +59,17 @@
                             <select name="via" style="color: black" class="form-select" aria-label="Default select example">
                                 <option value="Online">Online</option>
                                 <option value="Offline">Offline</option>
+                                <option value="Hybrid">Hybrid</option>
                             </select>
                         </div>
 
                         <h6 class="form-label" for="form6Example4">Ruangan</h6>
                         <div class="form-outline mb-4">
-                          <input type="text" placeholder="Masukkan Ruangan" style="color: black" name="ruang" class="form-control" />
+                          <select name="ruang" style="color: black" class="form-select" aria-label="Default select example">
+                            <option value="Ruang Rapat Lantai 2">Ruang Rapat Lantai 2</option>
+                            <option value="Aula">Aula</option>
+                            <option value="TLC">TLC</option>
+                          </select>
                           <div class="text-danger">
                             @error('ruang')
                                 {{$message}}

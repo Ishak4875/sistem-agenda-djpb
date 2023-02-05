@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
+<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 shadow">
     <a href="/" class="navbar-brand d-flex align-items-center">
         <h2 class="m-0 text-primary"><img class="img-fluid me-2" src="/{{'template'}}/img/logo djpb-1.png" alt="Logo DJPB"
                 style="width: 45px;">DJPb</h2>
