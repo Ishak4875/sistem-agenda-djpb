@@ -1,5 +1,12 @@
 @extends('layout.v_template')
 @section('content')
+@if (session('error'))
+  <script>
+    $(function () { //ready
+      toastr.error("{{session('error')}}");
+    });
+  </script>
+@endif
 <div class="container-fluid bg-light py-4 mb-4">
     <div class="container py-1">
         <div class="row g-5 align-items-center">

@@ -22,14 +22,14 @@
                 <div class="card-body">
                     <h5 class="card-title">Daftar Agenda</h5>
                     <div class="table table-responsive">
-                        <table class="table table-hover">
+                        <table class="table table-striped table-hover">
                             <thead class="thead-light">
                                 <tr>
                                 <th style="color: black" scope="col">No</th>
-                                <th style="color: black" scope="col">Nama Agenda</th>
                                 <th style="color: black" scope="col">Tanggal Agenda</th>
+                                <th style="color: black" scope="col">Nama Agenda</th>
                                 <th style="color: black" scope="col">Waktu</th>
-                                <th style="color: black" scope="col">Status</th>
+                                <th style="color: black" scope="col">Ruangan</th>
                                 <th style="color: black"></th>
                                 </tr>
                             </thead>
@@ -40,10 +40,10 @@
                                         <?php $tanggal = date("d-m-Y", strtotime($data->tanggal_agenda)) ?>
                                         <?php $waktu = date("H:i", strtotime($data->waktu_agenda)) ?>
                                         <th style="color: black" scope="row">{{$no++}}</th>
-                                        <td style="color: black">{{$data->nama_agenda}}</td>
                                         <td style="color: black">{{$tanggal}}</td>
+                                        <td style="color: black">{{$data->nama_agenda}}</td>
                                         <td style="color: black">{{$waktu}}</td>
-                                        <td style="color: black">{{$data->status}}</td>
+                                        <td style="color: black">{{$data->ruang}}</td>
                                         <td>
                                             <a href="/jadwal/detail/{{$data->id_agenda}}" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>
                                             @if (Auth::check())

@@ -17,6 +17,7 @@ class AgendaModel extends Model
     public function getAllAgenda()
     {
         return DB::table('tbl_agenda')
+            ->orderBy('tanggal_agenda')
             ->paginate(5);
     }
 
@@ -45,5 +46,15 @@ class AgendaModel extends Model
         DB::table('tbl_agenda')
             ->where('id_agenda',$id_agenda)
             ->delete();
+    }
+
+    public function checkAgenda($tanggal_agenda,$waktu_agenda,$ruang)
+    {
+        return DB::table('tbl_agenda')
+            ->select(DB::raw('count(nama_agenda) as jumlah'))
+            ->where('tbl_agenda.tanggal_agenda',$tanggal_agenda)
+            ->where('tbl_agenda.waktu_agenda',$waktu_agenda)
+            ->where('tbl_agenda.ruang',$ruang)
+            ->first();
     }
 }

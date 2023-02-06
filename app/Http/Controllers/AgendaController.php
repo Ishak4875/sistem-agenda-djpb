@@ -46,7 +46,13 @@ class AgendaController extends Controller
 
     public function insertAgenda(Request $request)
     {
-        
+        $tanggal_agenda = $request->tanggal_agenda;
+        $waktu_agenda = $request->waktu_agenda;
+        $ruang = $request->ruang;
+        $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
+        if($check->jumlah > 0){
+            return back()->with('error','Ruangan Telah Dipakai!!!');
+        }
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
@@ -99,6 +105,13 @@ class AgendaController extends Controller
     {
         
         $id_agenda = $request->id_agenda;
+        $tanggal_agenda = $request->tanggal_agenda;
+        $waktu_agenda = $request->waktu_agenda;
+        $ruang = $request->ruang;
+        $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
+        if($check->jumlah > 0){
+            return back()->with('error','Ruangan Telah Dipakai!!!');
+        }
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
@@ -135,6 +148,7 @@ class AgendaController extends Controller
         } catch (\Illuminate\Database\QueryException $ex) {
             return redirect()->route('jadwal')->with('error','Data Gagal Di Update!!!');
         }
+
     }
 
     public function deleteAgenda(Request $request)

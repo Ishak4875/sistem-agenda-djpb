@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[CalendarController::class,'getCalendar']);
-Route::get('/calendar',[CalendarController::class,'getData']);
+// Route::get('/',[CalendarController::class,'getCalendar'])->name('home');
+// Route::get('/calendar',[CalendarController::class,'getData']);
 // Route::get('/',[AgendaController::class,'getAllData'])->name('dashboard');
-Route::get('/jadwal',[AgendaController::class,'getAllDataJadwal'])->name('jadwal');
+Route::get('/',[AgendaController::class,'getAllDataJadwal'])->name('jadwal');
 Route::get('/jadwal/detail/{id_agenda}',[AgendaController::class,'getDetailAgenda']);
 Route::get('/jadwal/edit/{id_agenda}',[AgendaController::class,'editDetailAgenda'])->middleware('auth');;
 Route::post('/jadwal/update/{id_agenda}',[AgendaController::class,'updateAgenda'])->middleware('auth');;

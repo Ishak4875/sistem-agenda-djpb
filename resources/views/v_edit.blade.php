@@ -1,5 +1,12 @@
 @extends('layout.v_template')
 @section('content')
+@if (session('error'))
+  <script>
+    $(function () { //ready
+      toastr.error("{{session('error')}}");
+    });
+  </script>
+@endif
 <div class="container-fluid bg-light py-4 mb-4">
     <div class="container py-1">
         <div class="row g-5 align-items-center">
@@ -43,7 +50,7 @@
                         <div class="form-outline mb-4">
                           <select name="penanggung_jawab" style="color: black" class="form-select" aria-label="Default select example">
                             <option <?php if(($detail->penanggung_jawab) == 'PPA 1') echo 'selected'?> value="PPA 1">PPA 1</option>
-                            <option <?php if(($detail->penanggung_jawab) == 'PPA 2') echo 'selected'?> value="PPA 2">PPA 2</optio>
+                            <option <?php if(($detail->penanggung_jawab) == 'PPA 2') echo 'selected'?> value="PPA 2">PPA 2</option>
                             <option <?php if(($detail->penanggung_jawab) == 'PAPK') echo 'selected'?> value="PAPK">PAPK</option>
                             <option <?php if(($detail->penanggung_jawab) == 'SKKI') echo 'selected'?> value="SKKI">SKKI</option>
                             <option <?php if(($detail->penanggung_jawab) == 'Umum') echo 'selected'?> value="Umum">Umum</option>

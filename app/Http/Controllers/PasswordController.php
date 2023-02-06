@@ -23,7 +23,6 @@ class PasswordController extends Controller
 
         if(!Hash::check($request->old_password, auth()->user()->password)){
             return back()->with("error", "Password Lama Tidak Sesuai");
-            // dd('Old Password Tidak Sesuai');
         }
 
         try {

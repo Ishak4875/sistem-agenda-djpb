@@ -11,8 +11,9 @@
                     <h1 class="display-6">Detail Agenda</h1>
                     <p class="text-primary fs-5 mb-4">{{$detail->nama_agenda}}</p>
                     <div class="d-flex align-items-center mb-2">
+                        <?php $tanggal = date("d-m-Y", strtotime($detail->tanggal_agenda)) ?>
                         <i class="bi bi-calendar-check bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>
-                        <span>{{$detail->tanggal_agenda}}</span>
+                        <span>{{$tanggal}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <?php $waktu = date("H:i", strtotime($detail->waktu_agenda)) ?>

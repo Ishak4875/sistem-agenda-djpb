@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 08:12 AM
+-- Generation Time: Feb 06, 2023 at 07:16 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -113,13 +113,14 @@ CREATE TABLE `tbl_agenda` (
 --
 
 INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_agenda`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`) VALUES
-(1, 'Agenda 1', '2023-01-03', '04:21:27', 'Pak Itu', 'Offline', 'aula', 'Mengundang Pak Kanwil', 'Sudah Berlangsung'),
-(2, 'Agenda 2', '2023-01-04', '11:21:39', 'Pak Itu', 'Offline', 'Di Situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
-(5, 'Agenda 3', '2023-02-09', '09:12:00', 'Pak Dia', 'Offline', 'Ruang Di situ', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
-(6, 'Agenda 4', '2023-02-24', '09:15:00', 'Pak Siapa', 'Offline', 'Ruang Di Tempat', 'Mengundang Pak Kanwil', 'Sedang Berlangsung'),
-(7, 'Agenda 5', '2023-02-10', '09:15:00', 'Pak Situ', 'Online', 'Ruang Di Sana', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
-(8, 'Agenda 6', '2023-02-16', '09:15:00', 'Pak Sini', 'Online', 'Ruang Online', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
-(9, 'Agenda 7', '2023-02-17', '14:12:00', 'Pak Sana', 'Online', 'Ruang Di Sana', 'Mengundang Pak Kanwil', 'Sedang Berlangsung');
+(1, 'Agenda 1', '2023-01-03', '04:21:00', 'PPA 1', 'Offline', 'Aula', 'Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(2, 'Agenda 2', '2023-01-04', '11:21:00', 'PPA 2', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(5, 'Agenda 3', '2023-02-09', '09:12:00', 'PPA 1', 'Offline', 'Ruang Rapat Lantai 2', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung'),
+(6, 'Agenda 4', '2023-02-24', '09:15:00', 'PPA 2', 'Offline', 'Aula', 'Mengundang Pak Kanwil', 'Sedang Berlangsung'),
+(7, 'Agenda 5', '2023-02-10', '09:15:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
+(8, 'Agenda 6', '2023-02-16', '09:15:00', 'PAPK', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung'),
+(9, 'Agenda 7', '2023-02-17', '14:12:00', 'SKKI', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Sedang Berlangsung'),
+(11, 'Agenda 8', '2023-02-23', '21:54:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung');
 
 -- --------------------------------------------------------
 
@@ -215,7 +216,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`
