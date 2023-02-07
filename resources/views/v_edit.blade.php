@@ -15,6 +15,10 @@
                     <h4 style="text-align: center">Edit Agenda</h4>
                     <form action="/jadwal/update/{{$detail->id_agenda}}" method="POST">
                         @csrf
+                        <div class="form-outline mb-4">
+                          <input type="hidden" style="color: black" placeholder="Masukkan Nama Agenda" value="{{$detail->event_id}}" name="event_id" class="form-control" />
+                        </div>
+
                         <h6 class="form-label" for="form6Example3">Nama Agenda</h6>
                         <div class="form-outline mb-4">
                           <input type="text" style="color: black" placeholder="Masukkan Nama Agenda" value="{{$detail->nama_agenda}}" name="nama_agenda" class="form-control" />

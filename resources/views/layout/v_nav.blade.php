@@ -8,7 +8,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto py-4 py-lg-0">
-            <a href="/" class="nav-item nav-link active">Home</a>
+            <a href="/" class="nav-item nav-link {{request() -> is('/') ? 'active' : ' '}}">Home</a>
+            <a href="/about" class="nav-item nav-link {{request() -> is('/about') ? 'active' : ' '}}">About</a>
             {{-- <a href="about.html" class="nav-item nav-link">About</a> --}}
             @if (Auth::check() == false)
                 <a href="/login" class="nav-item nav-link">Login</a>

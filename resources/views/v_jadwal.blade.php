@@ -81,10 +81,46 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">No</button>
-          <a href="/jadwal/delete/{{$data->id_agenda}}" type="button" class="btn btn-danger">Yes</a>
+          <button type="button" data-eventId="{{$data->event_id}}" data-agendaId="{{$data->id_agenda}}" class="btn btn-danger btndelete">Yes</button>
         </div>
       </div>
     </div>
 </div>
 @endforeach
+
+<script type="text/javascript">
+  $(document).ready(function(e){
+    $(".btndelete").click(function(e){
+      e.preventDefault();
+      var id_agenda = $(this).closest('.btndelete').attr('data-agendaId');
+      var event_id = $(this).closest('.btndelete').attr('data-eventId');
+      var url = '{{URL("/jadwal/delete/")}}'+'/'+id_agenda+'/'+event_id;
+
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
+
+      $.ajax({
+        url:url,
+        type:'GET',
+        catch:false,
+        data:{
+          id_agenda:id_agenda,
+          event_id:event_id
+        },
+        success:function(data){
+          window.location.href = "/";
+          toastr.success("Data Berhasil Di Delete!!!")
+        },
+        error:function(error){
+          if(error.statusText !== undefined){
+            toastr.error(error.statusText);
+          }
+        }
+      })
+    });
+  });
+</script>
 @endsection
