@@ -16,9 +16,10 @@
                         <span>{{$tanggal}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
-                        <?php $waktu = date("H:i", strtotime($detail->waktu_agenda)) ?>
+                        <?php $waktu = date("H:i", strtotime($detail->waktu_mulai)) ?>
+                        <?php $waktu_akhir = date("H:i", strtotime($detail->waktu_akhir)) ?>
                         <i class="bi bi-alarm bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>
-                        <span>{{$waktu}}</span>
+                        <span>{{$waktu}} - {{$waktu_akhir}}</span>
                     </div>
                     <div class="d-flex align-items-center mb-2">
                         <i class="bi bi-wifi bg-light text-primary btn-sm-square rounded-circle me-3 fw-bold"></i>

@@ -38,13 +38,14 @@
                                 @foreach ($agenda as $data)
                                     <tr>
                                         <?php $tanggal = date("d-m-Y", strtotime($data->tanggal_agenda)) ?>
-                                        <?php $waktu = date("H:i", strtotime($data->waktu_agenda)) ?>
+                                        <?php $waktu = date("H:i", strtotime($data->waktu_mulai)) ?>
+                                        <?php $waktu_akhir = date("H:i", strtotime($data->waktu_akhir)) ?>
                                         <th style="color: black" scope="row">{{$no++}}</th>
                                         <td style="color: black">{{$tanggal}}</td>
                                         <td style="color: black">{{$data->nama_agenda}}</td>
-                                        <td style="color: black">{{$waktu}}</td>
+                                        <td style="color: black">{{$waktu}} - {{$waktu_akhir}}</td>
                                         <td style="color: black">{{$data->ruang}}</td>
-                                        <td>
+                                        <td style="color: black">
                                             <a href="/jadwal/detail/{{$data->id_agenda}}" class="btn btn-sm btn-info"><i class="bi bi-info-circle"></i></a>
                                             @if (Auth::check())
                                               <a href="/jadwal/edit/{{$data->id_agenda}}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>

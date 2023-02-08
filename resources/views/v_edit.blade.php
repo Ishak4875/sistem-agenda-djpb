@@ -39,12 +39,23 @@
                           </div>
                         </div>
 
-                        <h6 class="form-label" for="form6Example4">Waktu Agenda</h6>
+                        <h6 class="form-label" for="form6Example4">Waktu Mulai</h6>
                         <div class="form-outline mb-4">
-                          <?php $waktu = date("H:i", strtotime($detail->waktu_agenda)) ?>
-                          <input type="time" style="color: black" value="{{$waktu}}" name="waktu_agenda" class="form-control" />
+                          <?php $waktu = date("H:i", strtotime($detail->waktu_mulai)) ?>
+                          <input type="time" style="color: black" value="{{$waktu}}" name="waktu_mulai" class="form-control" />
                           <div class="text-danger">
-                            @error('waktu_agenda')
+                            @error('waktu_mulai')
+                                {{$message}}
+                            @enderror
+                          </div>
+                        </div>
+
+                        <h6 class="form-label" for="form6Example4">Waktu Akhir</h6>
+                        <div class="form-outline mb-4">
+                          <?php $waktu = date("H:i", strtotime($detail->waktu_akhir)) ?>
+                          <input type="time" style="color: black" value="{{$waktu}}" name="waktu_akhir" class="form-control" />
+                          <div class="text-danger">
+                            @error('waktu_akhir')
                                 {{$message}}
                             @enderror
                           </div>
@@ -81,6 +92,7 @@
                             <option <?php if(($detail->ruang) == 'Ruang Rapat Lantai 2') echo 'selected'?> value="Ruang Rapat Lantai 2">Ruang Rapat Lantai 2</option>
                             <option <?php if(($detail->ruang) == 'Aula') echo 'selected'?> value="Aula">Aula</option>
                             <option <?php if(($detail->ruang) == 'TLC') echo 'selected'?> value="TLC">TLC</option>
+                            <option <?php if(($detail->ruang) == 'Tidak Membutuhkan Ruangan') echo 'selected'?> value="Tidak Membutuhkan Ruangan">Tidak Membutuhkan Ruangan</option>
                           </select>
                           <div class="text-danger">
                             @error('ruang')

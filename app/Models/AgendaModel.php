@@ -18,6 +18,7 @@ class AgendaModel extends Model
     {
         return DB::table('tbl_agenda')
             ->orderBy('tanggal_agenda')
+            ->orderBy('waktu_mulai')
             ->paginate(5);
     }
 
@@ -48,15 +49,42 @@ class AgendaModel extends Model
             ->delete();
     }
 
-    public function checkAgenda($tanggal_agenda,$waktu_agenda,$ruang)
+    public function checkAgendaUpdate($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang,$id_agenda)
+    {
+        return DB::table('tbl_agenda')
+            ->select(DB::raw('count(nama_agenda) as jumlah'))
+            ->where('tbl_agenda.status','<>','Sudah Berlangsung')
+            ->where('tbl_agenda.via','<>','Online')
+            ->where('tbl_agenda.id_agenda','<>',$id_agenda)
+            ->where('tbl_agenda.tanggal_agenda',$tanggal_agenda)
+            ->where('tbl_agenda.ruang',$ruang)
+            ->where(function($query) use ($waktu_mulai,$waktu_akhir){
+                $query->where('tbl_agenda.waktu_mulai','>=',$waktu_mulai)
+                    ->where('tbl_agenda.waktu_akhir','<',$waktu_akhir)
+                    ->orWhere(function($que) use ($waktu_mulai,$waktu_akhir){
+                        $que->where('tbl_agenda.waktu_mulai','<',$waktu_akhir)
+                            ->where('tbl_agenda.waktu_akhir','>=',$waktu_mulai);
+                    });
+            })
+            ->first();
+    }
+
+    public function checkAgendaInsert($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang)
     {
         return DB::table('tbl_agenda')
             ->select(DB::raw('count(nama_agenda) as jumlah'))
             ->where('tbl_agenda.status','<>','Sudah Berlangsung')
             ->where('tbl_agenda.via','<>','Online')
             ->where('tbl_agenda.tanggal_agenda',$tanggal_agenda)
-            ->where('tbl_agenda.waktu_agenda',$waktu_agenda)
             ->where('tbl_agenda.ruang',$ruang)
+            ->where(function($query) use ($waktu_mulai,$waktu_akhir){
+                $query->where('tbl_agenda.waktu_mulai','>=',$waktu_mulai)
+                    ->where('tbl_agenda.waktu_akhir','<',$waktu_akhir)
+                    ->orWhere(function($que) use ($waktu_mulai,$waktu_akhir){
+                        $que->where('tbl_agenda.waktu_mulai','<',$waktu_akhir)
+                            ->where('tbl_agenda.waktu_akhir','>=',$waktu_mulai);
+                    });
+            })
             ->first();
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2023 at 02:27 AM
+-- Generation Time: Feb 08, 2023 at 08:41 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -100,7 +100,8 @@ CREATE TABLE `tbl_agenda` (
   `id_agenda` int(11) NOT NULL,
   `nama_agenda` varchar(255) NOT NULL,
   `tanggal_agenda` date NOT NULL,
-  `waktu_agenda` time NOT NULL,
+  `waktu_mulai` time NOT NULL,
+  `waktu_akhir` time NOT NULL,
   `penanggung_jawab` varchar(255) NOT NULL,
   `via` varchar(255) NOT NULL,
   `ruang` varchar(255) NOT NULL,
@@ -113,15 +114,15 @@ CREATE TABLE `tbl_agenda` (
 -- Dumping data for table `tbl_agenda`
 --
 
-INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_agenda`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`, `event_id`) VALUES
-(1, 'Agenda 1', '2023-02-09', '08:00:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'ejjmepei7pdjicv27ci9kkrqn4'),
-(2, 'Agenda 2', '2023-02-10', '08:30:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'knv8aprgp1h2ha52kab7tcg768'),
-(3, 'Agenda 3', '2023-02-11', '09:00:00', 'PPA 1', 'Hybrid', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'angehh041euqa62jlp4umb6928'),
-(4, 'Agenda 4', '2023-02-11', '08:49:00', 'PPA 1', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sedang Berlangsung', 'qcp7416a6ie3kllmcfsm2ckgh0'),
-(5, 'Agenda 5', '2023-02-13', '11:00:00', 'PAPK', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'f5v3m8m49otelfu6f0tq0qefdc'),
-(6, 'Agenda 6', '2023-02-14', '08:31:00', 'SKKI', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'lf8a1vs8ekms47s20g8cqe0e0k'),
-(7, 'Agenda 7', '2023-02-15', '10:00:00', 'Umum', 'Offline', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '1kmj55gicqqfsob94b7ppnatn0'),
-(8, 'Agenda 8', '2023-02-11', '09:00:00', 'PPA 1', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'n16c9qf0qpekshleipu4qa8l28');
+INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_mulai`, `waktu_akhir`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`, `event_id`) VALUES
+(1, 'Agenda 1', '2023-02-09', '08:00:00', '11:00:00', 'PPA 1', 'Online', 'Tidak Membutuhkan Ruangan', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'ejjmepei7pdjicv27ci9kkrqn4'),
+(2, 'Agenda 2', '2023-02-09', '07:30:00', '10:00:00', 'PPA 1', 'Online', 'Tidak Membutuhkan Ruangan', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'knv8aprgp1h2ha52kab7tcg768'),
+(3, 'Agenda 3', '2023-02-07', '09:00:00', '14:00:00', 'PPA 1', 'Hybrid', 'TLC', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'angehh041euqa62jlp4umb6928'),
+(4, 'Agenda 4', '2023-02-11', '07:00:00', '08:00:00', 'PPA 1', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sedang Berlangsung', 'qcp7416a6ie3kllmcfsm2ckgh0'),
+(5, 'Agenda 5', '2023-02-13', '08:00:00', '10:00:00', 'PAPK', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'f5v3m8m49otelfu6f0tq0qefdc'),
+(6, 'Agenda 6', '2023-02-14', '08:31:00', '09:00:00', 'SKKI', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'lf8a1vs8ekms47s20g8cqe0e0k'),
+(8, 'Agenda 8', '2023-02-11', '09:00:00', '09:17:00', 'PPA 1', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'n16c9qf0qpekshleipu4qa8l28'),
+(11, 'Agenda 9', '2023-02-07', '08:26:00', '11:26:00', 'PPA 1', 'Offline', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'h767gtvu270ni50m34ft2c87ek');
 
 -- --------------------------------------------------------
 
@@ -217,7 +218,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `users`

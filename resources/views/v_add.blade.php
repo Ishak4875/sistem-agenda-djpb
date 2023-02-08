@@ -35,11 +35,21 @@
                           </div>
                         </div>
 
-                        <h6 class="form-label" for="form6Example4">Waktu Agenda</h6>
+                        <h6 class="form-label" for="form6Example4">Waktu Mulai</h6>
                         <div class="form-outline mb-4">
-                          <input type="time" style="color: black" name="waktu_agenda" class="form-control" />
+                          <input type="time" style="color: black" name="waktu_mulai" class="form-control" />
                           <div class="text-danger">
-                            @error('waktu_agenda')
+                            @error('waktu_mulai')
+                                {{$message}}
+                            @enderror
+                          </div>
+                        </div>
+
+                        <h6 class="form-label" for="form6Example4">Waktu Akhir</h6>
+                        <div class="form-outline mb-4">
+                          <input type="time" style="color: black" name="waktu_akhir" class="form-control" />
+                          <div class="text-danger">
+                            @error('waktu_akhir')
                                 {{$message}}
                             @enderror
                           </div>
@@ -76,6 +86,7 @@
                             <option value="Ruang Rapat Lantai 2">Ruang Rapat Lantai 2</option>
                             <option value="Aula">Aula</option>
                             <option value="TLC">TLC</option>
+                            <option value="Tidak Membutuhkan Ruangan">Tidak Membutuhkan Ruangan</option>
                           </select>
                           <div class="text-danger">
                             @error('ruang')

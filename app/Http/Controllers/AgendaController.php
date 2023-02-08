@@ -30,7 +30,7 @@ class AgendaController extends Controller
         ];
 
         if($request->status == "success"){
-            return redirect()->route('jadwal')->with('success','Data Berhasil Di Hapus!!!');
+            return redirect()->route('jadwal')->with('success','Data Berhasil Dihapus!!!');
         }
         return view('v_jadwal',$data);
     }
@@ -53,16 +53,23 @@ class AgendaController extends Controller
     public function insertAgenda(Request $request)
     {
         $tanggal_agenda = $request->tanggal_agenda;
-        $waktu_agenda = $request->waktu_agenda;
+        $waktu_mulai = $request->waktu_mulai;
+        $waktu_akhir = $request->waktu_akhir;
         $ruang = $request->ruang;
-        $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
-        if(($check->jumlah > 0) and ($request->via != "Online") and ($request->status != "Sudah Berlangsung")){
+
+        if($waktu_mulai > $waktu_akhir){
+            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
+        }
+
+        $check = $this->AgendaModel->checkAgendaInsert($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang);
+        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
             return back()->with('error','Ruangan Telah Dipakai!!!');
         }
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
-            'waktu_agenda'=>'required',
+            'waktu_mulai'=>'required',
+            'waktu_akhir'=>'required',
             'penanggung_jawab'=>'required',
             'via'=>'required',
             'ruang'=>'required',
@@ -71,7 +78,8 @@ class AgendaController extends Controller
         ],[
             'nama_agenda.required'=>'Wajib Diisi!!!',
             'tanggal_agenda.required'=>'Wajib Diisi!!!',
-            'waktu_agenda.required'=>'Wajib Diisi!!!',
+            'waktu_mulai.required'=>'Wajib Diisi!!!',
+            'waktu_akhir.required'=>'Wajib Diisi!!!',
             'penanggung_jawab.required'=>'Wajib Diisi!!!',
             'via.required'=>'Wajib Diisi!!!',
             'ruang.required'=>'Wajib Diisi!!!',
@@ -80,8 +88,8 @@ class AgendaController extends Controller
         ]);
 
         try {
-            $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_agenda,'Asia/Makassar');
-            $endTime = (clone $startTime)->addHour();
+            $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_mulai,'Asia/Makassar');
+            $endTime = Carbon::parse($tanggal_agenda.' ' . $waktu_akhir,'Asia/Makassar');
 
             $event = new Event();
             $event->name = $request->nama_agenda;
@@ -93,7 +101,8 @@ class AgendaController extends Controller
             $data = [
                 'nama_agenda'=>$request->nama_agenda,
                 'tanggal_agenda'=>$request->tanggal_agenda,
-                'waktu_agenda'=>$request->waktu_agenda,
+                'waktu_mulai'=>$request->waktu_mulai,
+                'waktu_akhir'=>$request->waktu_akhir,
                 'penanggung_jawab'=>$request->penanggung_jawab,
                 'via'=>$request->via,
                 'ruang'=>$request->ruang,
@@ -104,9 +113,9 @@ class AgendaController extends Controller
 
             $this->AgendaModel->insertAgenda($data);
 
-            return redirect()->route('jadwal')->with('success','Data Berhasil Di Tambahkan!!!');
+            return redirect()->route('jadwal')->with('success','Data Berhasil Ditambahkan!!!');
         } catch (\Illuminate\Database\QueryException $ex) {
-            return redirect()->route('jadwal')->with('error','Data Gagal Di Tambahkan!!!');
+            return redirect()->route('jadwal')->with('error','Data Gagal Ditambahkan!!!');
         }
     }
 
@@ -124,19 +133,25 @@ class AgendaController extends Controller
     {
         $id_agenda = $request->id_agenda;
         $tanggal_agenda = $request->tanggal_agenda;
-        $waktu_agenda = $request->waktu_agenda;
+        $waktu_mulai = $request->waktu_mulai;
+        $waktu_akhir = $request->waktu_akhir;
         $ruang = $request->ruang;
         $event_id = $request->event_id;
 
-        $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
-        if(($check->jumlah > 0) and ($request->via != "Online") and ($request->status != "Sudah Berlangsung")){
+        if($waktu_mulai > $waktu_akhir){
+            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
+        }
+
+        $check = $this->AgendaModel->checkAgendaUpdate($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang,$id_agenda);
+        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
             return back()->with('error','Ruangan Telah Dipakai!!!');
         }
 
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
-            'waktu_agenda'=>'required',
+            'waktu_mulai'=>'required',
+            'waktu_akhir'=>'required',
             'penanggung_jawab'=>'required',
             'via'=>'required',
             'ruang'=>'required',
@@ -145,7 +160,8 @@ class AgendaController extends Controller
         ],[
             'nama_agenda.required'=>'Wajib Diisi!!!',
             'tanggal_agenda.required'=>'Wajib Diisi!!!',
-            'waktu_agenda.required'=>'Wajib Diisi!!!',
+            'waktu_mulai.required'=>'Wajib Diisi!!!',
+            'waktu_akhir.required'=>'Wajib Diisi!!!',
             'penanggung_jawab.required'=>'Wajib Diisi!!!',
             'via.required'=>'Wajib Diisi!!!',
             'ruang.required'=>'Wajib Diisi!!!',
@@ -153,8 +169,8 @@ class AgendaController extends Controller
             'status.required'=>'Wajib Diisi!!!'
         ]);
         try {
-            $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_agenda,'Asia/Makassar');
-            $endTime = (clone $startTime)->addHour();
+            $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_mulai,'Asia/Makassar');
+            $endTime = Carbon::parse($tanggal_agenda.' ' . $waktu_akhir,'Asia/Makassar');
             $event = Event::find($event_id);
 
             $event->update([
@@ -166,7 +182,8 @@ class AgendaController extends Controller
             $data = [
                 'nama_agenda'=>$request->nama_agenda,
                 'tanggal_agenda'=>$request->tanggal_agenda,
-                'waktu_agenda'=>$request->waktu_agenda,
+                'waktu_mulai'=>$request->waktu_mulai,
+                'waktu_akhir'=>$request->waktu_akhir,
                 'penanggung_jawab'=>$request->penanggung_jawab,
                 'via'=>$request->via,
                 'ruang'=>$request->ruang,
@@ -175,9 +192,9 @@ class AgendaController extends Controller
             ];
     
             $this->AgendaModel->updateAgenda($id_agenda,$data);
-            return redirect()->route('jadwal')->with('success','Data Berhasil Di Update!!!');
+            return redirect()->route('jadwal')->with('success','Data Berhasil Diperbarui!!!');
         } catch (\Illuminate\Database\QueryException $ex) {
-            return redirect()->route('jadwal')->with('error','Data Gagal Di Update!!!');
+            return redirect()->route('jadwal')->with('error','Data Gagal Diperbarui!!!');
         }
 
     }
@@ -192,7 +209,7 @@ class AgendaController extends Controller
         
         return response()->json([
             'success'=>true,
-            'pesan'=>'Data Berhasil Diupdate!!!',
+            'pesan'=>'Data Berhasil Diperbarui!!!',
             'id_agenda'=>$id_agenda,
             'event_id'=>$request->event_id
         ]);

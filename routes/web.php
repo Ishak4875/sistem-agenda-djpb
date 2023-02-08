@@ -18,21 +18,6 @@ use Spatie\GoogleCalendar\Event;
 |
 */
 
-// Route::get('/',[CalendarController::class,'getCalendar'])->name('home');
-// Route::get('/calendar',[CalendarController::class,'getData']);
-// Route::get('/',[AgendaController::class,'getAllData'])->name('dashboard');
-// Route::get('/test',function(){
-//     $event = new Event;
-//     $event->name = "Test From App";
-//     $event->startDateTime = Carbon\Carbon::now();
-//     $event->endDateTime = Carbon\Carbon::now()->addHour();
-
-//     $event->save();
-
-//     $e = Event::get();
-
-//     dd($e);
-// });
 Route::get('/',[AgendaController::class,'getAllDataJadwal'])->name('jadwal');
 Route::get('/jadwal/detail/{id_agenda}',[AgendaController::class,'getDetailAgenda']);
 Route::get('/jadwal/edit/{id_agenda}',[AgendaController::class,'editDetailAgenda'])->middleware('auth');;
