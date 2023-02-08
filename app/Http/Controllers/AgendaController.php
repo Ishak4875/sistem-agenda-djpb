@@ -28,6 +28,10 @@ class AgendaController extends Controller
         $data = [
             'agenda'=>$this->AgendaModel->getAllAgenda()
         ];
+
+        if($request->status == "success"){
+            return redirect()->route('jadwal')->with('success','Data Berhasil Di Hapus!!!');
+        }
         return view('v_jadwal',$data);
     }
 
@@ -52,7 +56,7 @@ class AgendaController extends Controller
         $waktu_agenda = $request->waktu_agenda;
         $ruang = $request->ruang;
         $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
-        if($check->jumlah > 0){
+        if(($check->jumlah > 0) and ($request->via != "Online") and ($request->status != "Sudah Berlangsung")){
             return back()->with('error','Ruangan Telah Dipakai!!!');
         }
         Request()->validate([
@@ -125,7 +129,7 @@ class AgendaController extends Controller
         $event_id = $request->event_id;
 
         $check = $this->AgendaModel->checkAgenda($tanggal_agenda,$waktu_agenda,$ruang);
-        if($check->jumlah > 0){
+        if(($check->jumlah > 0) and ($request->via != "Online") and ($request->status != "Sudah Berlangsung")){
             return back()->with('error','Ruangan Telah Dipakai!!!');
         }
 
@@ -192,11 +196,5 @@ class AgendaController extends Controller
             'id_agenda'=>$id_agenda,
             'event_id'=>$request->event_id
         ]);
-        // try {
-            
-        //     return redirect()->route('jadwal')->with('success','Data Berhasil Di Hapus!!!');
-        // } catch (\Illuminate\Database\QueryException $ex) {
-        //     return redirect()->route('jadwal')->with('error','Data Gagal Di Hapus!!!');
-        // }
     }
 }

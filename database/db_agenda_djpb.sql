@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2023 at 08:22 AM
+-- Generation Time: Feb 08, 2023 at 02:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -114,14 +114,14 @@ CREATE TABLE `tbl_agenda` (
 --
 
 INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_agenda`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`, `event_id`) VALUES
-(1, 'Agenda 1', '2023-01-03', '04:21:00', 'PPA 1', 'Offline', 'Aula', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', ''),
-(2, 'Agenda 2', '2023-01-04', '11:21:00', 'PPA 2', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung', ''),
-(5, 'Agenda 3', '2023-02-09', '09:12:00', 'PPA 1', 'Offline', 'Ruang Rapat Lantai 2', 'Tidak Mengundang Pak Kanwil', 'Sudah Berlangsung', ''),
-(6, 'Agenda 4', '2023-02-24', '09:15:00', 'PPA 2', 'Offline', 'Aula', 'Mengundang Pak Kanwil', 'Sedang Berlangsung', ''),
-(7, 'Agenda 5', '2023-02-10', '09:15:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', ''),
-(8, 'Agenda 6', '2023-02-16', '09:15:00', 'PAPK', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', ''),
-(9, 'Agenda 7', '2023-02-17', '14:12:00', 'SKKI', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Sedang Berlangsung', ''),
-(11, 'Agenda 8', '2023-02-23', '21:54:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '');
+(1, 'Agenda 1', '2023-02-09', '08:00:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'ejjmepei7pdjicv27ci9kkrqn4'),
+(2, 'Agenda 2', '2023-02-10', '08:30:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'knv8aprgp1h2ha52kab7tcg768'),
+(3, 'Agenda 3', '2023-02-11', '09:00:00', 'PPA 1', 'Hybrid', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'angehh041euqa62jlp4umb6928'),
+(4, 'Agenda 4', '2023-02-11', '08:49:00', 'PPA 1', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sedang Berlangsung', 'qcp7416a6ie3kllmcfsm2ckgh0'),
+(5, 'Agenda 5', '2023-02-13', '11:00:00', 'PAPK', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'f5v3m8m49otelfu6f0tq0qefdc'),
+(6, 'Agenda 6', '2023-02-14', '08:31:00', 'SKKI', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'lf8a1vs8ekms47s20g8cqe0e0k'),
+(7, 'Agenda 7', '2023-02-15', '10:00:00', 'Umum', 'Offline', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '1kmj55gicqqfsob94b7ppnatn0'),
+(8, 'Agenda 8', '2023-02-11', '09:00:00', 'PPA 1', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'n16c9qf0qpekshleipu4qa8l28');
 
 -- --------------------------------------------------------
 
@@ -145,7 +145,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'UserDJPB', 'djpbkendari@gmail.com', NULL, '$2y$10$wrIM9XFVhXktF48w9H2H6OMiRKSQH/25dYweRQyqPbaRahERAvbqy', NULL, '2023-01-31 19:33:54', '2023-02-01 18:21:17');
+(1, 'UserDJPB', 'djpbsultra@gmail.com', NULL, '$2y$10$wrIM9XFVhXktF48w9H2H6OMiRKSQH/25dYweRQyqPbaRahERAvbqy', NULL, '2023-01-31 19:33:54', '2023-02-01 18:21:17');
 
 --
 -- Indexes for dumped tables
@@ -217,7 +217,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`

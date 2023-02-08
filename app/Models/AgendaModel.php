@@ -52,6 +52,8 @@ class AgendaModel extends Model
     {
         return DB::table('tbl_agenda')
             ->select(DB::raw('count(nama_agenda) as jumlah'))
+            ->where('tbl_agenda.status','<>','Sudah Berlangsung')
+            ->where('tbl_agenda.via','<>','Online')
             ->where('tbl_agenda.tanggal_agenda',$tanggal_agenda)
             ->where('tbl_agenda.waktu_agenda',$waktu_agenda)
             ->where('tbl_agenda.ruang',$ruang)

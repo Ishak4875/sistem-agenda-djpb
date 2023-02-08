@@ -111,7 +111,7 @@
           event_id:event_id
         },
         success:function(data){
-          window.location.href = "/";
+          window.location.href = "/?status=success";
           toastr.success("Data Berhasil Di Delete!!!")
         },
         error:function(error){
