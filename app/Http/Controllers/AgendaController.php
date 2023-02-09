@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models;
 use App\Models\AgendaModel;
@@ -25,9 +26,18 @@ class AgendaController extends Controller
 
     public function getAllDataJadwal(Request $request)
     {
-        $data = [
-            'agenda'=>$this->AgendaModel->getAllAgenda()
-        ];
+        if(Auth::check()){
+            $data = [
+                'agenda'=>$this->AgendaModel->getAllAgenda()
+            ];
+        }else{
+            date_default_timezone_set("Asia/Makassar");
+            $current_time = date("h:i");
+            $current_date = date("Y-m-d");
+            $data = [
+                'agenda'=>$this->AgendaModel->getUpComingAgenda($current_date, $current_time)
+            ];
+        }
 
         if($request->status == "success"){
             return redirect()->route('jadwal')->with('success','Data Berhasil Dihapus!!!');

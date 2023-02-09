@@ -22,6 +22,16 @@ class AgendaModel extends Model
             ->paginate(5);
     }
 
+    public function getUpComingAgenda($current_date, $current_time)
+    {
+        return DB::table('tbl_agenda')
+            ->where('tanggal_agenda','>=',$current_date)
+            ->where('waktu_akhir','>=',$current_time)
+            ->orderBy('tanggal_agenda')
+            ->orderBy('waktu_mulai')
+            ->paginate(5);
+    }
+
     public function getDetailAgenda($id_agenda)
     {
         return DB::table('tbl_agenda')
