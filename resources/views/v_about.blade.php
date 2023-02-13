@@ -1,4 +1,5 @@
 @extends('layout.v_template')
+@section('title','About')
 @section('content')
 <div class="container-fluid hero-header bg-light py-4 mb-4">
     <div class="container py-1">

@@ -29,8 +29,11 @@ class PasswordController extends Controller
             User::whereId(auth()->user()->id)->update([
                 'password' => Hash::make($request->new_password)
             ]);
-            return redirect()->route('dashboard')->with('success','Password Telah Diperbarui');
-        } catch (\Throwable) {
+
+            return redirect()->route('jadwal')->with('success','Password Telah Diperbarui');
+        } catch (\Throwable $ex) {
+            // var_dump($ex);
+            // die;
             return back()->with('error','Password Gagal Diperbarui');
         }
     }

@@ -1,5 +1,6 @@
 @extends('layout.v_template')
 @section('background','class="bg-light"')
+@section('title','Jadwal')
 @section('content')
 @if (session('success'))
   <script>

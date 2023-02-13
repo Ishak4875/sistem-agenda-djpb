@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\RegisterAccountController;
 use Illuminate\Support\Facades\Route;
 use Spatie\GoogleCalendar\Event;
 
@@ -27,6 +28,8 @@ Route::post('/jadwal/insert',[AgendaController::class,'insertAgenda'])->middlewa
 Route::get('/jadwal/delete/{id_agenda}/{event_id}',[AgendaController::class,'deleteAgenda'])->middleware('auth');
 
 Route::get('/about',[AboutController::class,'getAbout']);
+
+Route::get('/register-akun-djpb',[RegisterAccountController::class,'getView']);
 
 Route::get('/change-password',[PasswordController::class,'changePassword']);
 Route::post('/change-password/update',[PasswordController::class,'updatePassword']);

@@ -1,4 +1,5 @@
 @extends('layout.v_template')
+@section('title','Detail')
 @section('content')
 <div class="container-xxl py-5">
     <div class="container">

@@ -1,4 +1,5 @@
 @extends('layout.v_template')
+@section('title','Tambah')
 @section('content')
 @if (session('error'))
   <script>
