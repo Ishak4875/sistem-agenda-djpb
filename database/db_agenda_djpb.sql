@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 09, 2023 at 02:43 AM
+-- Generation Time: Feb 14, 2023 at 01:10 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -117,14 +117,17 @@ CREATE TABLE `tbl_agenda` (
 INSERT INTO `tbl_agenda` (`id_agenda`, `nama_agenda`, `tanggal_agenda`, `waktu_mulai`, `waktu_akhir`, `penanggung_jawab`, `via`, `ruang`, `mengundang_pak_kanwil`, `status`, `event_id`) VALUES
 (1, 'Agenda 1', '2023-02-09', '08:00:00', '11:00:00', 'PPA 1', 'Online', 'Tidak Membutuhkan Ruangan', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'ejjmepei7pdjicv27ci9kkrqn4'),
 (2, 'Agenda 2', '2023-02-09', '07:30:00', '10:00:00', 'PPA 1', 'Online', 'Tidak Membutuhkan Ruangan', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'knv8aprgp1h2ha52kab7tcg768'),
-(3, 'Agenda 3', '2023-02-07', '09:00:00', '14:00:00', 'PPA 1', 'Hybrid', 'TLC', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'angehh041euqa62jlp4umb6928'),
 (4, 'Agenda 4', '2023-02-11', '07:00:00', '08:00:00', 'PPA 1', 'Offline', 'Aula', 'Tidak Mengundang Pak Kanwil', 'Sedang Berlangsung', 'qcp7416a6ie3kllmcfsm2ckgh0'),
 (5, 'Agenda 5', '2023-02-13', '08:00:00', '10:00:00', 'PAPK', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'f5v3m8m49otelfu6f0tq0qefdc'),
 (6, 'Agenda 6', '2023-02-14', '08:31:00', '09:00:00', 'SKKI', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'lf8a1vs8ekms47s20g8cqe0e0k'),
 (8, 'Agenda 8', '2023-02-11', '09:00:00', '09:17:00', 'PPA 1', 'Online', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'n16c9qf0qpekshleipu4qa8l28'),
 (11, 'Agenda 9', '2023-02-07', '08:26:00', '11:26:00', 'PPA 1', 'Offline', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'h767gtvu270ni50m34ft2c87ek'),
 (12, 'Agenda 10', '2023-02-10', '10:00:00', '12:00:00', 'PAPK', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '2obropd09448pl45qc1nkq7u5c'),
-(13, 'Agenda 10', '2023-02-09', '08:21:00', '09:22:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '0e7a5p3e9smkcnh51mr1gv4p40');
+(13, 'Agenda 10', '2023-02-09', '08:21:00', '09:22:00', 'PPA 1', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '0e7a5p3e9smkcnh51mr1gv4p40'),
+(15, 'Agenda 11', '2023-02-14', '10:00:00', '11:00:00', 'SKKI', 'Online', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Belum Berlangsung', '72uprke86u4mb57ss6p25qjm64'),
+(16, 'Agenda 12', '2023-02-15', '13:24:00', '16:24:00', 'PAPK', 'Offline', 'TLC', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'ddchjmooqklfrs7v5kt20vgkm4'),
+(17, 'Agenda 70', '2023-02-24', '16:51:00', '18:51:00', 'PPA 2', 'Online', 'Tidak Membutuhkan Ruangan', 'Mengundang Pak Kanwil', 'Belum Berlangsung', 'f16r8i0jftg00v8hq6j6r5h56s'),
+(18, 'Agenda 80', '2023-02-14', '07:58:00', '10:58:00', 'PPA 1', 'Offline', 'Ruang Rapat Lantai 2', 'Mengundang Pak Kanwil', 'Sudah Berlangsung', 'eep2u321e1957d7lgv8ic1n1tc');
 
 -- --------------------------------------------------------
 
@@ -148,7 +151,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'UserDJPB', 'djpbsultra@gmail.com', NULL, '$2y$10$wrIM9XFVhXktF48w9H2H6OMiRKSQH/25dYweRQyqPbaRahERAvbqy', NULL, '2023-01-31 19:33:54', '2023-02-01 18:21:17');
+(1, 'UserDJPB', 'djpbsultra@gmail.com', NULL, '$2y$10$uDMUs532M7Hl3/cr0ihlUeSNroRI6ir.57xJFv0X3Rbv0SxIVarde', NULL, '2023-01-31 19:33:54', '2023-02-12 22:02:17'),
+(2, 'SKKI', 'skki27djpbn@gmail.com', NULL, '$2y$10$QeYRcrEkiE1ShM3IGX20UeZXt8diDvpfdlJXbvhd7Bbp5w9jV6kPK', NULL, '2023-02-09 16:41:38', '2023-02-09 17:18:17'),
+(3, 'UMUM', 'umumdjpbsultra@gmail.com', NULL, '$2y$10$1WHujQMtv6MBXe0Js6fn2.NK5scpdL6Qs1ArLfovR1oGv/DmyWD4y', NULL, '2023-02-09 17:19:20', '2023-02-09 17:19:20'),
+(4, 'PPA 1', 'ppa1djpbsultra@gmail.com', NULL, '$2y$10$UOHgDJDtlzz9T6Swv38sfOqDWQy8p4XO5RyctsEfDlTKdZvdCa1zq', NULL, '2023-02-09 17:20:51', '2023-02-09 17:20:51'),
+(5, 'PPA 2', 'ppa2djpbsultra@gmail.com', NULL, '$2y$10$IpPf26Af.9onbhrZ1K9ya.2mQJ1cVfJjNiuDSdrviygU6O8vz8GdG', NULL, '2023-02-09 17:21:39', '2023-02-09 17:21:39'),
+(6, 'PAPK', 'papkdjpbsultra@gmail.com', NULL, '$2y$10$EnYCCKXkMDdrPdmF0q35p.HMGV4L9TnMBva17myQQlKSzeWs3HE36', NULL, '2023-02-09 17:22:42', '2023-02-09 17:22:42'),
+(7, 'djpb', 'djpbtest@gmail.com', NULL, '$2y$10$GGx1ZCnjmAVxwpSSAomJM.lH25KTaBrjCQhV5ARzaV7cLyI9qmlzq', NULL, '2023-02-12 22:07:39', '2023-02-12 22:07:39');
 
 --
 -- Indexes for dumped tables
@@ -220,13 +229,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `tbl_agenda`
 --
 ALTER TABLE `tbl_agenda`
-  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_agenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

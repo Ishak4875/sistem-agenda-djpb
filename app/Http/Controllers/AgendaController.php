@@ -67,14 +67,6 @@ class AgendaController extends Controller
         $waktu_akhir = $request->waktu_akhir;
         $ruang = $request->ruang;
 
-        if($waktu_mulai > $waktu_akhir){
-            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
-        }
-
-        $check = $this->AgendaModel->checkAgendaInsert($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang);
-        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
-            return back()->with('error','Ruangan Telah Dipakai!!!');
-        }
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
@@ -96,6 +88,16 @@ class AgendaController extends Controller
             'mengundang_pak_kanwil.required'=>'Wajib Diisi!!!',
             'status.required'=>'Wajib Diisi!!!'
         ]);
+
+        if($waktu_mulai > $waktu_akhir){
+            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
+        }
+
+        $check = $this->AgendaModel->checkAgendaInsert($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang);
+        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
+            return back()->with('error','Ruangan Telah Dipakai!!!');
+        }
+
 
         try {
             $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_mulai,'Asia/Makassar');
@@ -148,15 +150,6 @@ class AgendaController extends Controller
         $ruang = $request->ruang;
         $event_id = $request->event_id;
 
-        if($waktu_mulai > $waktu_akhir){
-            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
-        }
-
-        $check = $this->AgendaModel->checkAgendaUpdate($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang,$id_agenda);
-        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
-            return back()->with('error','Ruangan Telah Dipakai!!!');
-        }
-
         Request()->validate([
             'nama_agenda'=>'required',
             'tanggal_agenda'=>'required',
@@ -178,6 +171,17 @@ class AgendaController extends Controller
             'mengundang_pak_kanwil.required'=>'Wajib Diisi!!!',
             'status.required'=>'Wajib Diisi!!!'
         ]);
+
+        if($waktu_mulai > $waktu_akhir){
+            return back()->with('error','Waktu Mulai Tidak Boleh Lebih dari Waktu Akhir!!!');
+        }
+
+        $check = $this->AgendaModel->checkAgendaUpdate($tanggal_agenda,$waktu_mulai,$waktu_akhir,$ruang,$id_agenda);
+        if(($check->jumlah > 0) and ($request->via != "Online") and $request->status != "Sudah Berlangsung"){
+            return back()->with('error','Ruangan Telah Dipakai!!!');
+        }
+
+
         try {
             $startTime = Carbon::parse($tanggal_agenda.' ' . $waktu_mulai,'Asia/Makassar');
             $endTime = Carbon::parse($tanggal_agenda.' ' . $waktu_akhir,'Asia/Makassar');

@@ -62,7 +62,7 @@
                           </div>
                         </div>
                       
-                        <h6 class="form-label" for="form6Example4">Penganggung Jawab</h6>
+                        <h6 class="form-label" for="form6Example4">Penanggung Jawab</h6>
                         <div class="form-outline mb-4">
                           <select name="penanggung_jawab" style="color: black" class="form-select" aria-label="Default select example">
                             <option <?php if(($detail->penanggung_jawab) == 'PPA 1') echo 'selected'?> value="PPA 1">PPA 1</option>
