@@ -32,10 +32,9 @@ class AgendaController extends Controller
             ];
         }else{
             date_default_timezone_set("Asia/Makassar");
-            $current_time = date("h:i");
-            $current_date = date("Y-m-d");
+            $current_date = date("Y-m-d H:i:s");
             $data = [
-                'agenda'=>$this->AgendaModel->getUpComingAgenda($current_date, $current_time)
+                'agenda'=>$this->AgendaModel->getUpComingAgenda($current_date)
             ];
         }
 

@@ -22,11 +22,10 @@ class AgendaModel extends Model
             ->paginate(5);
     }
 
-    public function getUpComingAgenda($current_date, $current_time)
+    public function getUpComingAgenda($current_date)
     {
         return DB::table('tbl_agenda')
-            ->where('tanggal_agenda','>=',$current_date)
-            ->where('waktu_akhir','>=',$current_time)
+            ->where(DB::raw('CONCAT(tanggal_agenda," ",waktu_akhir)'),'>=',$current_date)
             ->orderBy('tanggal_agenda')
             ->orderBy('waktu_mulai')
             ->paginate(5);

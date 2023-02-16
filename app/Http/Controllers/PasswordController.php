@@ -19,6 +19,7 @@ class PasswordController extends Controller
             'email'=>'required',
             'old_password'=>'required',
             'new_password'=>'required|confirmed',
+            'new_password_confirmation'=>'required'
         ]);
 
         if(!Hash::check($request->old_password, auth()->user()->password)){
@@ -32,8 +33,6 @@ class PasswordController extends Controller
 
             return redirect()->route('jadwal')->with('success','Password Telah Diperbarui');
         } catch (\Throwable $ex) {
-            // var_dump($ex);
-            // die;
             return back()->with('error','Password Gagal Diperbarui');
         }
     }
